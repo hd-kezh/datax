@@ -1,0 +1,19 @@
+{
+  "name": "mongodbwriter",
+  "parameter": {
+    "address": [
+        "10.125.128.107:26000",
+        "10.125.128.108:26000",
+        "10.125.128.110:26000"
+    ],
+    "userName": "",
+    "userPassword": "",
+    "dbName": "$writedbName$",
+    "collectionName": "$WtableName$",
+    "column": $WcolumsArray$,
+    "upsertInfo": {
+      "isUpsert": "true",
+      "upsertKey": "unique_id"
+    }
+  }
+}

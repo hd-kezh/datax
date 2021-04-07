@@ -1,0 +1,25 @@
+{
+  "name": "mysqlreader",
+  "parameter": {
+    "username": "$RuserName$",
+    "password": "$Rpassword$",
+    "where":"$mongoquery$",
+    "column": [
+      $drdsColumn$
+    ],
+    "connection": [
+      {
+        "jdbcUrl":[
+          "$RjdbcUrl$"
+        ] ,
+        "table": [
+          "$Rtable$"
+        ]
+      }
+    ],
+    "session": [
+      "set session sql_mode='ANSI'"
+    ],
+    "isTableMode":"true"
+  }
+}

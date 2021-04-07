@@ -1,0 +1,22 @@
+{
+  "name": "hbase11xwriter",
+  "parameter": {
+    "hbaseConfig": {
+      "hbase.zookeeper.quorum": "10.125.128.107"
+    },
+    "table": "$WtableName$",
+    "mode": "normal",
+    "rowkeyColumn": [
+      {
+        "index": 0,
+        "type": "string"
+      }
+    ],
+    "column": $WcolumsArray$,
+    "versionColumn": {
+      "index": -1,
+      "value": "123456789"
+    },
+    "encoding": "utf-8"
+  }
+}

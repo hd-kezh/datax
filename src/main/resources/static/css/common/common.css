@@ -1,0 +1,79 @@
+.searchCondition,.searchContent{background: #fff;border: 1px solid #ccc;border-radius: 4px;padding: 10px}
+.searchCondition{margin-bottom: 20px}
+.float-right{float: right!important;}
+.float-left{float: left!important;}
+/*表头不换行*/
+/*.dataTable th {
+    white-space: nowrap !important;
+}*/
+
+.select2-container .select2-selection--single {
+    height: 34px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 30px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 32px !important;
+}
+
+table{
+    background: #fff !important;
+}
+
+.btn-primary{
+    background-color: #47b2fb !important;
+    border-color: #47b2fb !important;
+}
+.btn-primary:hover{
+background-color: #82cafb !important;
+    border-color: #82cafb !important;
+}
+
+/*.dataTable th,td{white-space:nowrap !important;}*/
+.dataTable th,td{vertical-align: middle;text-align: center;}
+.mt-2{margin-top: 2px;}
+.mb-2{margin-bottom: 2px;}
+.mb-4{margin-bottom: 4px;}
+.ml-4{margin-left: 4px;}
+.ml-20{margin-left: 20px;}
+.pt-5{padding-top: 5px;}
+
+.bg-own-green{background: #4ac400;color:#fff;padding: 4px;border-radius: 2px;font-size: 12px}
+.bg-own-red{background: #FF6065;color:#fff;padding: 4px;border-radius: 2px;font-size: 12px}
+.bg-own-deepred{background: #FB1118;color:#fff;padding: 4px;border-radius: 2px;font-size: 12px}
+.bg-own-blue{background: #60BBFF;color:#fff;padding: 4px;border-radius: 2px;font-size: 12px;}
+.bg-own-yellow{background: #FFBD60;color:#fff;padding: 4px;border-radius: 2px;font-size: 12px;}
+/*button和输入框同一行*/
+.inline-btn{
+    margin-top: 24px;
+}
+/*搜索按钮大小*/
+.search-btn{width:100px;}
+
+.font-warning-12{
+    font-size: 12px;
+    color:red;
+}
+.btn-default {
+    color: #333 !important;
+    background-color: #fff !important;
+    border-color: #ccc !important;
+}
+.title-header {
+    background-color: #fff;
+    overflow: hidden;
+    padding: 0px 16px;
+    height: 40px;
+    line-height: 40px;
+}
+.header-text {
+    line-height: 30px;
+    border-left: 2px solid #475669;
+    padding-left: 10px;
+    font-weight: 800;
+    font-size: 14px;
+    color: #475669;
+}

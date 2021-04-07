@@ -1,0 +1,14 @@
+{
+  "name": "elasticsearchwriter",
+  "parameter": {
+    "esClusterName": "poc-es",
+    "esClusterIP": "$nodeIpsWithoutPort$",
+    "esClusterPort": "$portsWithoutIP$",
+    "esIndex": "$WtableName$",
+    "esType": "type",
+    "attributeNameString": "$Wcolums$",
+    "attributeNameSplit": ",",
+    "className": "com.alibaba.datax.plugin.writer.elasticsearchwriter.Cust",
+    "batchSize": "10000"
+  }
+}

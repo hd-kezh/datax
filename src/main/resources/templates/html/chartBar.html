@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>工作项列表</title>
+	<!--基础CSS文件-->
+	<link rel="stylesheet" href="../../static/css/common/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="../../static/css/basic.css">
+	<link rel="stylesheet" href="../../static/css/index.css">
+</head>
+<body style="background: #F9FAFC">
+<div class="title-header">
+	<span class="header-text">任务监控</span>
+</div>
+
+<div class="top-half container">
+	<div class="info-chart">
+        <div class="chart-title">工作项管理分析</div>
+		<div id="chart-demand-all" class="col-xs-11 chart-analysis"></div>
+	</div>
+</div>
+
+<!--基础JS文件-->
+<script src="../../static/js/common/jquery-1.12.4.js"></script>
+<script src="../../static/css/common/bootstrap/js/bootstrap.js"></script>
+<script src="../../static/js/common/echarts.js"></script>
+<script src="https://cdn.bootcss.com/sockjs-client/1.1.4/sockjs.min.js"></script>
+<script src="https://cdn.bootcss.com/stomp.js/2.3.3/stomp.min.js"></script>
+
+<!--本页面的JS文件-->
+<script src="../../static/js/list/init.js"></script>
+<script src="../../static/js/chartBar.js"></script>
+</body>
+</html>

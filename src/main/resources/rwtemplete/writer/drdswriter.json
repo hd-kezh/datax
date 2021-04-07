@@ -1,0 +1,24 @@
+{
+  "name": "drdswriter",
+  "parameter": {
+    "writeMode": "insert ignore",
+    "username": "$WuserName$",
+    "password": "$Wpassword$",
+    "connection": [
+      {
+        "jdbcUrl": "$WjdbcUrl$",
+        "table": [
+          "$WtableName$"
+        ]
+      }
+    ],
+    "column": [
+      $WcolumsType2$
+    ],
+    "preSql": [
+      "$preSql$"
+    ],
+    "batchSize":"2000"
+  }
+}
+

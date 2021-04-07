@@ -1,0 +1,12 @@
+{
+  "name": "hdfswriter",
+  "parameter": {
+    "defaultFS":  "$defaultFS$",
+    "fileType":  "$fileType$",
+    "path":  "$path$",
+    "fileName":  "$fileName$",
+    "column": $WcolumsArray$,
+    "writeMode": "$writeMode$",
+    "fieldDelimiter": "$fieldDelimiter$"
+  }
+}

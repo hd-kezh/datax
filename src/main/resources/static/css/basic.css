@@ -1,0 +1,38 @@
+.title-header {
+    background-color: #fff;
+    overflow: hidden;
+    padding: 0px 16px;
+    height: 40px;
+    line-height: 40px;
+}
+.header-text {
+    line-height: 30px;
+    border-left: 2px solid #475669;
+    padding-left: 10px;
+    font-weight: 800;
+    font-size: 14px;
+    color: #475669;
+}
+.chart-title {
+    text-align: center;
+    font-size: 28px;
+    margin-top: 0px;
+}
+
+.font-big {
+	font-size: 30px;
+}
+
+.pagination {
+	margin: 5px 20px;
+}
+
+.pagination.page-number a {
+	color: black;
+}
+
+.pagination.page-number li.active a {
+	background-color: #FF8000 !important;
+	border: 0px;
+	color: white;
+}

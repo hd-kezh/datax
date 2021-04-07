@@ -1,0 +1,21 @@
+{
+  "name": "drdsreader",
+  "parameter": {
+    "username": "$RuserName$",
+    "password": "$Rpassword$",
+    "where":"$mongoquery$",
+    "column": [
+      $drdsColumn$
+    ],
+    "connection": [
+      {
+        "table": [
+          "$Rtable$"
+        ],
+        "jdbcUrl": [
+          "$RjdbcUrl$"
+        ]
+      }
+    ]
+  }
+}

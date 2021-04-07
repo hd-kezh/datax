@@ -1,0 +1,21 @@
+{
+  "name": "oraclewriter",
+  "parameter": {
+    "username": "$WuserName$",
+    "password": "$Wpassword$",
+    "column": [
+      $WcolumsType2$
+    ],
+    "preSql": [
+      "$preSql$"
+    ],
+    "connection": [
+      {
+        "jdbcUrl": "$WjdbcUrl$",
+        "table": [
+          "$WtableName$"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="../../static/css/monitorSearch.css">
+    <title>监控查询</title>
+</head>
+<body style="background: #F9FAFC">
+<div class="title-header">
+    <span class="header-text">监控查询</span>
+</div>
+<div style="padding: 10px">
+    <div class="row">
+        <div class="col-lg-3 col-md-3">
+            <div class="form-group">
+                <label for="rwState">任务状态</label>
+                <select id="rwState" class="form-control">
+                    <option value="-1">全部</option>
+                    <option value="0">初始化</option>
+                    <option value="1">执行成功</option>
+                    <option value="2">执行失败</option>
+                    <option value="3">执行中</option>
+                    <option value="4">手工中止</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3">
+            <div class="form-group">
+                <label for="rwType">任务类型</label>
+                <select id="rwType" class="form-control">
+                    <option value="-1">全部</option>
+                    <option value="1">批处理</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3">
+            <div class="form-group">
+                <label for="ifRun">是否重跑</label>
+                <select id="ifRun" class="form-control">
+                    <option value="-1">全部</option>
+                    <option value="1">是</option>
+                    <option value="0">否</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3">
+            <div class="form-group">
+                <label for="goNumner">进程号</label>
+                <input id="goNumner" type="text" class="form-control" placeholder="请输入">
+            </div>
+        </div>
+    </div>
+    <div class="page-header">
+        <button type="button" class="btn btn-default btn-sm search-btn" onclick="refreshSwitch()"><i class="fa fa-refresh"></i> <span class="refresh-test">启动刷新</span></button>
+        <span class="title-alert"><i class="fa fa-exclamation-circle"></i> 开启之后每5s刷新一次</span>
+        <button type="button" class="btn btn-danger btn-sm float-right search-btn" onclick="addWindowBtn()"><i class="fa fa-plus"></i> 新增</button>
+        <button type="button" class="btn btn-primary btn-sm float-right search-btn margin-r-5" onclick="searchTableData()"><i class="fa fa-search"></i> 搜索</button>
+    </div>
+    <div class="search-content hide">
+        <table id="table" class="table table-bordered">
+
+        </table>
+    </div>
+</div>
+<!--大模态框-->
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="myLargeModalLabel">任务报错信息</h4>
+            </div>
+            <div class="modal-body">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--新增模态框-->
+<div class="modal addWindow">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">添加新数据</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="taskName" class="col-sm-2 control-label">任务名</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="taskName" placeholder="请输入">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="unitCode" class="col-sm-2 control-label">配置</label>
+                        <div class="col-sm-10">
+                            <select id="unitCode" class="select2 select2-container select2-container--default select2-container--below">
+
+                            </select>
+                            <!--<select id="unitCode" class="form-control">
+
+                            </select>-->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">启动状态</label>
+                        <div class="col-sm-10 pt-5">
+                            <input type="radio" name="timeStart" value="1" class="minimal" id="defaultStart" checked/><span class="ml-4" style="margin-right: 20px">默认启动</span>
+                            <input type="radio" name="timeStart" value="2" class="minimal" id="timeStart"><span class="ml-4" style="margin-right: 20px">定时启动</span>
+                            <input type="radio" name="timeStart" value="3" class="minimal" id="cycleTimeStart"><span class="ml-4">周期启动</span>
+                            <!--<input type="checkbox" class="icheckbox_minimal"><span class="ml-4">定时启动</span>-->
+                        </div>
+                    </div>
+                    <div id="datepickerDiv" class="form-group hide">
+                        <label for="datepicker" class="col-sm-2 control-label">启动时间</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control pull-right" id="datepicker" style="cursor: pointer" readonly/>
+                        </div>
+                    </div>
+                    <div id="datepickerCycleDiv" class="form-group hide">
+                        <label class="col-sm-2 control-label">启动周期</label>
+                        <div class="col-sm-10">
+                            <div class="row">
+                                <div class="col-md-4 col-lg-4">
+                                    <span class="control-label float-left margin-r-5">时:</span>
+                                    <select id="hour" class="form-control float-left" style="width: 100px">
+
+                                    </select>
+                                </div>
+                                <div class="col-md-4 col-lg-4">
+                                    <span class="control-label float-left margin-r-5">分:</span>
+                                    <select id="minute" class="form-control float-left" style="width: 100px">
+
+                                    </select>
+                                </div>
+                                <div class="col-md-4 col-lg-4">
+                                    <span class="control-label float-left margin-r-5">秒:</span>
+                                    <select id="second" class="form-control float-left" style="width: 100px">
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary search-btn" onclick="setData()">发布生效</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="../../static/js/common/header.js"></script>
+<script src="../../static/js/monitorSearch.js"></script>
+<script>
+    $(".select2").select2({
+        "width":"100%",
+        language:"zh-CN",
+    });
+
+    var date = new Date();
+    $('#datepicker').datetimepicker({
+        format:"yyyy-mm-dd hh:ii:ss",
+        language:"zh-CN",
+        startDate: date,
+        todayHighlight:true,
+        todayBtn:true,
+        autoclose: true,//选完默认关闭
+        initialDate: date
+    });
+</script>
+</html>

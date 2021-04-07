@@ -1,0 +1,26 @@
+{
+  "name": "mysqlwriter",
+  "parameter": {
+    "writeMode": "insert",
+    "username": "$WuserName$",
+    "password": "$Wpassword$",
+    "connection": [
+      {
+        "jdbcUrl": "$WjdbcUrl$",
+        "table": [
+          "$WtableName$"
+        ]
+      }
+    ],
+    "session": [
+      "set session sql_mode='ANSI'"
+    ],
+    "column": [
+      $WcolumsType2$
+    ],
+    "preSql": [
+      "$preSql$"
+    ],
+    "batchSize":"100000"
+  }
+}

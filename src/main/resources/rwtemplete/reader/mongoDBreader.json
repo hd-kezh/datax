@@ -1,0 +1,14 @@
+{
+  "name": "mongodbreader",
+  "parameter": {
+    "address": [
+      "$Raddress$"],
+    "userName": "",
+    "userPassword": "",
+    "dbName": "$RdbName$",
+    "query":"$mongoquery$",
+    "collectionName": "$Rtable$",
+    "column":$rclomsAarray$
+
+  }
+}
